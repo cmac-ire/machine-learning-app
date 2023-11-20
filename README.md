@@ -2,14 +2,9 @@
 
 X-Ray Image Classifier
 
-
 An intuitive and user-friendly web application developed using Python to classify X-ray images and identify if they indicate the presence of pneumonia.
 
-
 X-Ray Classifier Demo
-
-![image](https://medicalmlapp-mygqbpp338ft7xqbqsixvs.streamlit.app/)
-
 
 Features
 
@@ -78,7 +73,6 @@ Contributions make the open-source community an enriching place to learn, inspir
     Open a Pull Request
 
 License
-
 Distributed under Personal License. See LICENSE for more information.
 
 
