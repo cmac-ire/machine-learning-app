@@ -62,16 +62,6 @@ Built With
     TensorFlow/Keras - Employed for deep learning and predictions.
     SQLite - Used for storing and summarizing user feedback.
 
-Contributing
-
-Contributions make the open-source community an enriching place to learn, inspire, and innovate. Any contributions to this project are heartily appreciated.
-
-    Fork the Project
-    Create your Feature Branch (git checkout -b feature/AmazingFeature)
-    Commit your Changes (git commit -m 'Add some AmazingFeature')
-    Push to the Branch (git push origin feature/AmazingFeature)
-    Open a Pull Request
-
 License
 Distributed under Personal License. See LICENSE for more information.
 
