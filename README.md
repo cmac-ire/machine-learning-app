@@ -8,7 +8,7 @@ An intuitive and user-friendly web application developed using Python to classif
 
 X-Ray Classifier Demo
 
-![image](https://github.com/cmac-ire/machine-learning-app)
+![image](https://medicalmlapp-mygqbpp338ft7xqbqsixvs.streamlit.app/)
 
 
 Features
