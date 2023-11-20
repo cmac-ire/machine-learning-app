@@ -1,0 +1,11 @@
+Cormac Farrelly License
+Version 1.0, November 20, 2023
+
+Copyright (C) 2023 Cormac Farrelly
+
+All rights reserved. This software and its associated documentation are the exclusive
+property of Cormac Farrelly. You may not use, copy, modify, merge, publish, distribute, 
+sublicense, and/or sell copies of the software without explicit written permission 
+from Cormac Farrelly.
+
+For licensing inquiries, contact Cormac Farrelly at cfarr311y@gmail.com.
