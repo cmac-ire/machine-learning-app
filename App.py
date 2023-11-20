@@ -93,12 +93,6 @@ if st.button("Show Feedback Summary"):
     df = pd.DataFrame(feedback_data, columns=["Feedback", "Count"])
     st.bar_chart(df.set_index("Feedback"))
 
-# Badge and author information
-badge_html = """
-<iframe src="https://cmac-ire.github.io/medicalmlapp/linkedin_badge.html" width="640" height="426" frameborder="0" scrolling="no"></iframe>
-"""
-st.markdown(badge_html, unsafe_allow_html=True)
-
 st.markdown("""
     <div style="display: flex; align-items: center; margin-top: 20px;">
         <h3 style="margin: 0;">👨‍💻 By Cormac :) </h3>
