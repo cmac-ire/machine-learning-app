@@ -17,10 +17,7 @@ Features
 
 
 Live Demo
-The application is hosted on Streamlit. Check out the live app here: https://medicalmlapp-mygqbpp338ft7xqbqsixvs.streamlit.app/
-
-Getting Started
-Prerequisites
+The application is hosted on Streamlit. Check out the live app here: https://cmac-ml.streamlit.app
 
     Python==3.11.4
     streamlit==1.25.0
@@ -31,23 +28,6 @@ Prerequisites
     tensorflow-cpu==2.13.0
     pandas==2.0.3
 
-
-Installation & Setup
-   1. Clone the repository:
-
-    https://github.com/cmac-ire/machine-learning-app
-
-   2. Install the required packages:
-
-    pip install -r requirements.txt
-
-   3. Run the Streamlit app:
-
-    streamlit run app.py
-    
-The app should now be running on http://localhost:8501/.
-
-
 Usage
 Simply upload an X-ray image using the file uploader. The app will display the image, make a prediction, and present the results. Users are encouraged to provide feedback on the prediction.
 Built With
@@ -57,7 +37,7 @@ Built With
     SQLite - Used for storing and summarizing user feedback.
 
 License
-Distributed under Personal License. See LICENSE for more information.
+Distributed under MIT. See LICENSE for more information.
 
 
 Contact
