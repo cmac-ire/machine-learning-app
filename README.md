@@ -1,13 +1,11 @@
 # machine learning app
 
 X-Ray Image Classifier
-
 An intuitive and user-friendly web application developed using Python to classify X-ray images and identify if they indicate the presence of pneumonia.
 
 X-Ray Classifier Demo
 
 Features
-
 1. Upload & Visualize: Easily upload X-ray images and get a visual preview.
 
 2. Instant Prediction: The app uses a trained deep learning model to make instant predictions on the uploaded images.
@@ -19,11 +17,9 @@ Features
 
 
 Live Demo
-
 The application is hosted on Streamlit. Check out the live app here: https://medicalmlapp-mygqbpp338ft7xqbqsixvs.streamlit.app/
 
 Getting Started
-
 Prerequisites
 
     Python==3.11.4
@@ -37,7 +33,6 @@ Prerequisites
 
 
 Installation & Setup
-
    1. Clone the repository:
 
     https://github.com/cmac-ire/machine-learning-app
@@ -54,7 +49,6 @@ The app should now be running on http://localhost:8501/.
 
 
 Usage
-
 Simply upload an X-ray image using the file uploader. The app will display the image, make a prediction, and present the results. Users are encouraged to provide feedback on the prediction.
 Built With
 
@@ -67,7 +61,6 @@ Distributed under Personal License. See LICENSE for more information.
 
 
 Contact
-
 https://www.linkedin.com/in/cormac-farrelly-b080b9279/
 
 https://twitter.com/Cmac_GN
