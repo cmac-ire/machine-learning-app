@@ -1,7 +1,7 @@
-# machine learning app
+# machine-learning-app
 
 X-Ray Image Classifier
-An intuitive and user-friendly web application developed using Python to classify X-ray images and identify if they indicate the presence of pneumonia.
+An intuitive and user-friendly web application developed using Python & TensorFlow to classify X-ray images and identify if they indicate the presence of pneumonia.
 
 X-Ray Classifier Demo
 
@@ -62,9 +62,7 @@ Distributed under Personal License. See LICENSE for more information.
 
 Contact
 https://www.linkedin.com/in/cormac-farrelly-b080b9279/
-
 https://twitter.com/Cmac_GN
-
 https://www.instagram.com/cmac_987/
 
 
