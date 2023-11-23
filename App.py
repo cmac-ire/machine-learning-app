@@ -53,14 +53,24 @@ def save_feedback(cursor, feedback):
 
 con, cursor = init_db()
 
-# Function to predict image
-def predict_image(img_array):
-    predictions = model.predict(img_array)
-    confidence_for_Normal_XRay = predictions[0][0]
-    if confidence_for_Normal_XRay >= 0.5:
-        return "Pneumonia X-Ray", confidence_for_Normal_XRay
-    else:
-        return "Normal X-Ray", 1 - confidence_for_Normal_XRay
+# Function to predict image for a Cat or Dog binary classification
+def predict_image(img_array, model):
+    if model is None:
+        st.error("Model not loaded successfully.")
+        return "Error", 0.0
+
+    try:
+        predictions = model.predict(img_array)
+        confidence_for_dog = predictions[0][0]
+        if confidence_for_dog >= 0.5:
+            return "Dog", confidence_for_dog
+        else:
+            return "Cat", 1 - confidence_for_dog
+    except Exception as e:
+        st.error(f"Error during prediction: {e}")
+        return "Error", 0.0
+
+
 
 # App layout
 st.markdown('# Machine Learning Image Classifier', unsafe_allow_html=True)
