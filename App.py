@@ -26,11 +26,12 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-@st.cache(allow_output_mutation=True)
+# Load model
+@st.cache_data(allow_output_mutation=True)
 def load_my_model():
     try:
         # Change the filename to 'save_at_5.keras'
-        model = tfk.models.load_model('save_at_5.keras')
+        model = tf.keras.models.load_model('save_at_5.keras')
         return model
     except Exception as e:
         st.error(f"Error loading the model: {e}")
