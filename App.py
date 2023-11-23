@@ -26,7 +26,7 @@ st.markdown("""
 # Load model
 @st.cache(allow_output_mutation=True)
 def load_my_model():
-    return load_model('MedicalML_ResNet.h5')
+    return load_model('FYP.h5')
 
 model = load_my_model()
 
