@@ -1,7 +1,10 @@
 # machine-learning-app
 
 X-Ray Image Classifier
-An intuitive and user-friendly web application developed using Python & TensorFlow to classify X-ray images and identify if they indicate the presence of pneumonia.
+An intuitive and user-friendly web application developed using Python & TensorFlow to classify images and identify if they indicate the presence of pneumonia.
+
+![Project Logo](readme.png)
+
 
 X-Ray Classifier Demo
 
@@ -17,10 +20,7 @@ Features
 
 
 Live Demo
-The application is hosted on Streamlit. Check out the live app here: https://medicalmlapp-mygqbpp338ft7xqbqsixvs.streamlit.app/
-
-Getting Started
-Prerequisites
+The application is hosted on Streamlit. Check out the live app here: https://cmac-ml.streamlit.app
 
     Python==3.11.4
     streamlit==1.25.0
@@ -31,23 +31,6 @@ Prerequisites
     tensorflow-cpu==2.13.0
     pandas==2.0.3
 
-
-Installation & Setup
-   1. Clone the repository:
-
-    https://github.com/cmac-ire/machine-learning-app
-
-   2. Install the required packages:
-
-    pip install -r requirements.txt
-
-   3. Run the Streamlit app:
-
-    streamlit run app.py
-    
-The app should now be running on http://localhost:8501/.
-
-
 Usage
 Simply upload an X-ray image using the file uploader. The app will display the image, make a prediction, and present the results. Users are encouraged to provide feedback on the prediction.
 Built With
@@ -57,12 +40,15 @@ Built With
     SQLite - Used for storing and summarizing user feedback.
 
 License
-Distributed under Personal License. See LICENSE for more information.
+Distributed under MIT. See LICENSE for more information.
 
 
 Contact
+
 https://www.linkedin.com/in/cormac-farrelly-b080b9279/
+
 https://twitter.com/Cmac_GN
+
 https://www.instagram.com/cmac_987/
 
 
