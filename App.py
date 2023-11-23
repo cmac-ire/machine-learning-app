@@ -5,6 +5,7 @@ from keras.models import load_model
 from keras.preprocessing.image import img_to_array, load_img
 import sqlite3
 import streamlit.components.v1 as components
+import keras as tf
 
 
 # Set page config
@@ -26,7 +27,7 @@ st.markdown("""
 # Load model
 @st.cache(allow_output_mutation=True)
 def load_my_model():
-    return load_model('save_at_5.keras')
+    return tf.keras.models.load_model('save_at_5.keras')
 
 model = load_my_model()
 
