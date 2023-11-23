@@ -1,14 +1,9 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-from keras.models import load_model
 from keras.preprocessing.image import img_to_array, load_img
 import sqlite3
-import streamlit.components.v1 as components
-import keras as tf
-import tensorflow.keras as tfk
 import tensorflow as tf
-from tensorflow.keras.models import load_model
 
 # Set page config
 st.set_page_config(page_title="Machine Learning Image Classifier", initial_sidebar_state="collapsed")
@@ -36,7 +31,6 @@ def load_my_model():
     except Exception as e:
         st.error(f"Error loading the model: {e}")
         return None
-
 
 # Initialize database
 def init_db():
@@ -72,9 +66,6 @@ def predict_image(img_array, model):
     except Exception as e:
         st.error(f"Error during prediction: {e}")
         return "Error", 0.0
-
-
-
 
 # App layout
 st.markdown('# Machine Learning Image Classifier', unsafe_allow_html=True)
