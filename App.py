@@ -22,7 +22,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Load model
-@st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True, max_entries=1, suppress_st_warning=True)
 def load_my_model():
     try:
         # Change the filename to 'save_at_5.keras'
@@ -88,7 +88,7 @@ with col2:
         # Display the image
         st.image(image, caption='Successfully uploaded Image.', use_column_width=True)
 
-        # Load the model only once and reuse it
+        # Load the model for each prediction
         loaded_model = load_my_model()
 
         # Pass the model parameter when calling predict_image
