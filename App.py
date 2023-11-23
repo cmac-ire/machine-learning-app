@@ -6,8 +6,7 @@ import sqlite3
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
-import os
-from sklearn.metrics import confusion_matrix, classification_report
+
 
 # Set page config
 st.set_page_config(page_title="Machine Learning Image Classifier", initial_sidebar_state="collapsed")
