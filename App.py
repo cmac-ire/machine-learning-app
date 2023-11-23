@@ -58,6 +58,8 @@ def predict_image(img_array, model):
 
     try:
         predictions = model.predict(img_array)
+        st.write("Raw Predictions:", predictions)  # Add this line to print raw predictions
+
         confidence_for_dog = predictions[0][0]
         if confidence_for_dog >= 0.5:
             return "Dog", confidence_for_dog
