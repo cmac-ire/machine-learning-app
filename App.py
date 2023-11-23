@@ -27,7 +27,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Load model
-@st.cache_data(allow_output_mutation=True)
+@st.cache
 def load_my_model():
     try:
         # Change the filename to 'save_at_5.keras'
@@ -36,6 +36,7 @@ def load_my_model():
     except Exception as e:
         st.error(f"Error loading the model: {e}")
         return None
+
 
 # Initialize database
 def init_db():
