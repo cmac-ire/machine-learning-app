@@ -87,7 +87,7 @@ col1, col2, col3 = st.columns([1, 6, 1])
 with col2:
     uploaded_file = st.file_uploader("📊 Choose an X-ray image.", type=["jpg", "jpeg", "png", "webp"])
     if uploaded_file:
-        image = load_img(uploaded_file, target_size=(224, 224))
+        image = load_img(uploaded_file, target_size=(180, 180))
 
         img_array = img_to_array(image) / 255.0
         img_array = np.expand_dims(img_array, axis=0)
