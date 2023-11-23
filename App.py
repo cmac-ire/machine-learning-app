@@ -6,7 +6,9 @@ from keras.preprocessing.image import img_to_array, load_img
 import sqlite3
 import streamlit.components.v1 as components
 import keras as tf
-
+import tensorflow.keras as tfk
+import tensorflow as tf
+from tensorflow.keras.models import load_model
 
 # Set page config
 st.set_page_config(page_title="Machine Learning Image Classifier", initial_sidebar_state="collapsed")
@@ -24,12 +26,11 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Load model
 @st.cache(allow_output_mutation=True)
 def load_my_model():
     try:
         # Change the filename to 'save_at_5.keras'
-        model = tf.keras.models.load_model('save_at_5.keras')
+        model = tfk.models.load_model('save_at_5.keras')
         return model
     except Exception as e:
         st.error(f"Error loading the model: {e}")
