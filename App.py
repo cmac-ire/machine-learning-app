@@ -92,8 +92,11 @@ with col2:
         # Display the image
         st.image(image, caption='Successfully uploaded Image.', use_column_width=True)
 
+        # Load the model only once and reuse it
+        loaded_model = load_my_model()
+
         # Pass the model parameter when calling predict_image
-        predicted_class, confidence = predict_image(img_array, load_my_model())
+        predicted_class, confidence = predict_image(img_array, loaded_model)
         st.markdown(f"# Predicted Class: **{predicted_class}** with *{confidence * 100:.2f}%* confidence.", unsafe_allow_html=True)
 
 # Feedback section
