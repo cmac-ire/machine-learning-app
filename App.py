@@ -4,6 +4,11 @@ import pandas as pd
 from keras.preprocessing.image import img_to_array, load_img
 import sqlite3
 import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+import matplotlib.pyplot as plt
+import os
+from sklearn.metrics import confusion_matrix, classification_report
 
 # Set page config
 st.set_page_config(page_title="Machine Learning Image Classifier", initial_sidebar_state="collapsed")
@@ -26,7 +31,7 @@ st.markdown("""
 def load_my_model():
     try:
         # Change the filename to 'save_at_5.keras'
-        model = tf.keras.models.load_model('save_at_5.keras')
+        model = keras.models.load_model('save_at_5.keras')
         return model
     except Exception as e:
         st.error(f"Error loading the model: {e}")
@@ -58,18 +63,19 @@ def predict_image(img_array, model):
 
     try:
         predictions = model.predict(img_array)
-        st.write("Raw Predictions:", predictions)  # Add this line to print raw predictions
 
+        # Retrieve class and confidence
         score = float(predictions[0])
-        st.write(f"This image is {100 * (1 - score):.2f}% cat and {100 * score:.2f}% dog.")
+        predicted_class = "Dog" if score >= 0.5 else "Cat"
 
-        if score >= 0.5:
-            return "Dog", score
-        else:
-            return "Cat", 1 - score
+        return predicted_class, score
     except Exception as e:
         st.error(f"Error during prediction: {e}")
         return "Error", 0.0
+
+# Image classification model
+image_size = (180, 180)
+model = load_my_model()
 
 # App layout
 st.markdown('# Machine Learning Image Classifier', unsafe_allow_html=True)
@@ -90,11 +96,8 @@ with col2:
         # Display the image
         st.image(image, caption='Successfully uploaded Image.', use_column_width=True)
 
-        # Load the model for each prediction
-        loaded_model = load_my_model()
-
         # Pass the model parameter when calling predict_image
-        predicted_class, confidence = predict_image(img_array, loaded_model)
+        predicted_class, confidence = predict_image(img_array, model)
         st.markdown(f"# Predicted Class: **{predicted_class}** with *{confidence * 100:.2f}%* confidence.", unsafe_allow_html=True)
 
 # Feedback section
