@@ -22,7 +22,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Load model
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load_my_model():
     try:
         # Change the filename to 'save_at_5.keras'
