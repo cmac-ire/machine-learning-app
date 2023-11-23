@@ -22,7 +22,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Load model
-@st.cache(allow_output_mutation=True, max_entries=1, suppress_st_warning=True)
+@st.cache(allow_output_mutation=False, max_entries=1, suppress_st_warning=True)
 def load_my_model():
     try:
         # Change the filename to 'save_at_5.keras'
@@ -60,11 +60,13 @@ def predict_image(img_array, model):
         predictions = model.predict(img_array)
         st.write("Raw Predictions:", predictions)  # Add this line to print raw predictions
 
-        confidence_for_dog = predictions[0][0]
-        if confidence_for_dog >= 0.5:
-            return "Dog", confidence_for_dog
+        score = float(predictions[0])
+        st.write(f"This image is {100 * (1 - score):.2f}% cat and {100 * score:.2f}% dog.")
+
+        if score >= 0.5:
+            return "Dog", score
         else:
-            return "Cat", 1 - confidence_for_dog
+            return "Cat", 1 - score
     except Exception as e:
         st.error(f"Error during prediction: {e}")
         return "Error", 0.0
