@@ -1,11 +1,10 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+from keras.models import load_model
 from keras.preprocessing.image import img_to_array, load_img
 import sqlite3
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras import layers
+import streamlit.components.v1 as components
 
 
 # Set page config
@@ -25,15 +24,11 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Load model
-@st.cache(allow_output_mutation=False, max_entries=1, suppress_st_warning=True)
+@st.cache(allow_output_mutation=True)
 def load_my_model():
-    try:
-        # Change the filename to 'save_at_5.keras'
-        model = keras.models.load_model('save_at_5.keras')
-        return model
-    except Exception as e:
-        st.error(f"Error loading the model: {e}")
-        return None
+    return load_model('MedicalML_ResNet.h5')
+
+model = load_my_model()
 
 # Initialize database
 def init_db():
@@ -53,27 +48,14 @@ def save_feedback(cursor, feedback):
 
 con, cursor = init_db()
 
-# Function to predict image for a Cat or Dog binary classification
-def predict_image(img_array, model):
-    if model is None:
-        st.error("Model not loaded successfully.")
-        return "Error", 0.0
-
-    try:
-        predictions = model.predict(img_array)
-
-        # Retrieve class and confidence
-        score = float(predictions[0])
-        predicted_class = "Dog" if score >= 0.5 else "Cat"
-
-        return predicted_class, score
-    except Exception as e:
-        st.error(f"Error during prediction: {e}")
-        return "Error", 0.0
-
-# Image classification model
-image_size = (180, 180)
-model = load_my_model()
+# Function to predict image
+def predict_image(img_array):
+    predictions = model.predict(img_array)
+    confidence_for_Normal_XRay = predictions[0][0]
+    if confidence_for_Normal_XRay >= 0.5:
+        return "Pneumonia X-Ray", confidence_for_Normal_XRay
+    else:
+        return "Normal X-Ray", 1 - confidence_for_Normal_XRay
 
 # App layout
 st.markdown('# Machine Learning Image Classifier', unsafe_allow_html=True)
@@ -86,16 +68,15 @@ col1, col2, col3 = st.columns([1, 6, 1])
 with col2:
     uploaded_file = st.file_uploader("📊 Choose an X-ray image.", type=["jpg", "jpeg", "png", "webp"])
     if uploaded_file:
-        image = load_img(uploaded_file, target_size=(180, 180))
+        image = load_img(uploaded_file, target_size=(224, 224))
 
         img_array = img_to_array(image) / 255.0
         img_array = np.expand_dims(img_array, axis=0)
 
         # Display the image
-        st.image(image, caption='Successfully uploaded Image.', use_column_width=True)
+        st.image(image, caption='Succesfully uploaded Image.', use_column_width=True)
 
-        # Pass the model parameter when calling predict_image
-        predicted_class, confidence = predict_image(img_array, model)
+        predicted_class, confidence = predict_image(img_array)
         st.markdown(f"# Predicted Class: **{predicted_class}** with *{confidence * 100:.2f}%* confidence.", unsafe_allow_html=True)
 
 # Feedback section
