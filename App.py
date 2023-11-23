@@ -72,6 +72,7 @@ def predict_image(img_array, model):
 
 
 
+
 # App layout
 st.markdown('# Machine Learning Image Classifier', unsafe_allow_html=True)
 
