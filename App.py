@@ -90,9 +90,10 @@ with col2:
         img_array = np.expand_dims(img_array, axis=0)
 
         # Display the image
-        st.image(image, caption='Succesfully uploaded Image.', use_column_width=True)
+        st.image(image, caption='Successfully uploaded Image.', use_column_width=True)
 
-        predicted_class, confidence = predict_image(img_array)
+        # Pass the model parameter when calling predict_image
+        predicted_class, confidence = predict_image(img_array, load_my_model())
         st.markdown(f"# Predicted Class: **{predicted_class}** with *{confidence * 100:.2f}%* confidence.", unsafe_allow_html=True)
 
 # Feedback section
