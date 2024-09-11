@@ -1,5 +1,7 @@
 # machine-learning-app
 
+*This project was developed with the help of AI tools, using them as a guide, assistant, and for significant code generation. All final creative decisions and deployments reflect my own work and intentions.*
+
 X-Ray Image Classifier
 An intuitive and user-friendly web application developed using Python & TensorFlow to classify images and identify if they indicate the presence of pneumonia.
 
